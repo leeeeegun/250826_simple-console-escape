@@ -36,16 +36,16 @@ public class GameController {
 
             // 사용자 입력을 받아 서비스 호출
             switch (command) {
-                case "이동" :
+                case "이동":
                     currentRoom = gameService.processMove(currentRoom, target);
-                case "공격" :
+                case "공격":
                     gameService.processAttack(player, currentRoom);
                     break;
-                case "줍기" :
+                case "줍기":
                     gameService.processTakeItem(player, currentRoom, target);
-                case "인벤토리" :
+                case "인벤토리":
                     view.showInventory(player);
-                case "종료" :
+                case "종료":
                     view.showMessage("게임을 종료합니다.");
                     scanner.close();
                     return;

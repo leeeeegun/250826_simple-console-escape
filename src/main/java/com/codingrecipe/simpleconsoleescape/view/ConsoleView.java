@@ -14,17 +14,38 @@ public class ConsoleView {
     public void showRoomInfo(Room currentRoom) {
         System.out.println("\n------------------------------");
         System.out.println("현재 위치: " + currentRoom.getDescription());
+
         if (currentRoom.getMonster() != null) {
             System.out.println("으악!! " + currentRoom.getMonster().getName() + "이(가) 나타났습니다!");
         }
         if (currentRoom.getItem() != null) {
             System.out.println(currentRoom.getItem().getName() + "이(가) 바닥에 떨어져 있습니다.");
         }
+
+        // 출구 정보 출력
         System.out.print("출구: ");
-        for (String direction : currentRoom.getExits().keySet()) {
-            System.out.print(direction + " ");
+        String exits = String.join(" ", currentRoom.getExits().keySet());
+        System.out.println(exits.isEmpty() ? "없음" : exits);
+        System.out.println("------------------------------");
+
+        System.out.println("사용 가능한 명령어:");
+        // 이동: 출구가 있을 때만 예시를 보여줌
+        if (!currentRoom.getExits().isEmpty()) {
+            String exampleDirection = currentRoom.getExits().keySet().iterator().next();
+            System.out.println("- 이동 [방향] (예: 이동 " + exampleDirection + ")");
         }
-        System.out.println("\n------------------------------");
+        // 공격: 몬스터가 있을 때만 보여줌
+        if (currentRoom.getMonster() != null) {
+            System.out.println("- 공격");
+        }
+        // 줍기: 아이템이 있을 때만 예시를 보여줌
+        if (currentRoom.getItem() != null) {
+            System.out.println("- 줍기 [아이템] (예: 줍기 " + currentRoom.getItem().getName() + ")");
+        }
+        // 항상 가능한 명령어
+        System.out.println("- 인벤토리");
+        System.out.println("- 종료");
+        System.out.println("------------------------------");
     }
 
     public void showInventory(Player player) {

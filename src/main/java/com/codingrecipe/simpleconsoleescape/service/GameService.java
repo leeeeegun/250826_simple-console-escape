@@ -39,7 +39,7 @@ public class GameService {
 
         // 플레이어의 공격
         monster.takeDamage(player.getAttackPower());
-        view.showMessage(monster.getName() + "에게" + player.getAttackPower() + "의 피해를 입었습니다.");
+        view.showMessage(monster.getName() + "에게 " + player.getAttackPower() + "의 피해를 주었습니다.");
 
         view.showBattleStatus(player, monster);
 
