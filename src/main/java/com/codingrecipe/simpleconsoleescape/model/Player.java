@@ -20,7 +20,7 @@ public class Player {
             this.hp = 0;
         }
     }
-    
+
     public boolean hasItem(String itemName) {
         for (Item item : inventory) {
             if (item.getName().equalsIgnoreCase(itemName)) {
