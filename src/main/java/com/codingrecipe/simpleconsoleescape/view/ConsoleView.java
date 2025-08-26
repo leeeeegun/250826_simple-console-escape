@@ -21,7 +21,7 @@ public class ConsoleView {
             System.out.println(currentRoom.getItem().getName() + "이(가) 바닥에 떨어져 있습니다.");
         }
         System.out.print("출구: ");
-        for (String direction : currentRoom.getExit().getExits().keySet()) {
+        for (String direction : currentRoom.getExits().keySet()) {
             System.out.print(direction + " ");
         }
         System.out.println("\n------------------------------");
