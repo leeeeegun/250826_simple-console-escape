@@ -21,6 +21,10 @@ public class Player {
         }
     }
 
+    public void addItem(Item item) {
+        inventory.add(item);
+    }
+
     public boolean hasItem(String itemName) {
         for (Item item : inventory) {
             if (item.getName().equalsIgnoreCase(itemName)) {
